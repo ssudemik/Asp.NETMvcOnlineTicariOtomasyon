@@ -6,10 +6,12 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
-    public class Category
+    public class Expense //gider
     {
         [Key]
-        public int CategoryID { get; set; } //property oluşturma
-        public string CategoryName { get; set; }
+        public int ExpenseID { get; set; }
+        public string Explanation { get; set; }
+        public DateTime Date { get; set; }
+        public Decimal Sum { get; set; }
     }
 }

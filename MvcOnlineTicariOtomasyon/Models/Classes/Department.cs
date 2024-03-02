@@ -6,10 +6,11 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
-    public class Category
+    public class Department
     {
         [Key]
-        public int CategoryID { get; set; } //property oluşturma
-        public string CategoryName { get; set; }
+        public int DepartmentID { get; set; }
+        public string DepartmentName{ get; set; }
+        
     }
 }
