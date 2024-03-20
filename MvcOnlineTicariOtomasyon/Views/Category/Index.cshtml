@@ -1,23 +1,35 @@
-﻿
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
-<table class="table table-bordered" style="margin-top:20px; margin-left:20px;
-margin-right:20px">
+<table class="table table-bordered" style="margin-top:20px">
     <tr>
-        <th>ID</th>
-        <th>Kategori Adı</th>
+        <th> ID </th>
+        <th> Category Name </th>
+        <th> Delete </th>
+        <th> Update </th>
+
     </tr>
-    <tr>
-        <th>1</th>
-        <th> Beyaz Eşya</th>
-    </tr>
-    <tr>
-        <th>2</th>
-        <th> Telefon</th>
-    </tr>
+    @foreach (var c in Model)
+    {
+        //veri sıralama döngüsü.
+        //bir döngü oluşturdum. bu döngü c adında bir değişken içeriyor. c modele bağlı ,
+        //model kategoriye bağlı ,kategori de controller tarafındaki methoda bağlı
+
+        <tr>
+            <td>
+                @c.CategoryID
+            </td>
+            <td>
+                @c.CategoryName
+            </td>
+            <td> <a href="#" class="btn btn-danger"> Delete </a></td>
+            <td> <a href="#" class="btn btn-success"> Update </a></td>
+        </tr>
+    }
 </table>
-<button class="btn btn-primary"> Yeni Kategori </button>
+<a href="/Category/CategoryAdd" class="btn btn-primary"> Category Add </a>
