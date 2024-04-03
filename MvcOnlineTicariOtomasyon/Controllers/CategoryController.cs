@@ -41,5 +41,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var cate = c.Categories.Find(ID);
             return View("CateBring", cate);
         }
+        public ActionResult CateUpdate(Category k)
+        {
+            var cate = c.Categories.Find(k.CategoryID); //cate adında bir değişken oluşturulup bu değişken yardımı ile ID hafızaya alındı
+            cate.CategoryName = k.CategoryName; //bu ID ye göre işlem yapması için k.CategoryName yeni değer diğer taraf atanacak değer.
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

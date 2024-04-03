@@ -7,11 +7,12 @@
 <h2>Category Update</h2>
 <br /> 
 
-@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post)) //bu sayfa yüklendikten sonra bir post işlemi gerçekleştiğine hangi action resoult çalışacağını bbelirlemek için.
+@using (Html.BeginForm("CateUpdate", "Category", FormMethod.Post)) //bu sayfa yüklendikten sonra bir post işlemi gerçekleştiğine hangi action resoult çalışacağını bbelirlemek için.
 {
     <div class="form-group">
         @Html.LabelFor(x  => x.CategoryName)   
-        @Html.TextBoxFor(x  => x.CategoryName, new {@class ="form-control"})   
+        @Html.TextBoxFor(x  => x.CategoryName, new {@class ="form-control"}) 
+        @Html.HiddenFor(x=> x.CategoryID)
     </div>
    
     <button class="btn btn-warning"> Update </button>
