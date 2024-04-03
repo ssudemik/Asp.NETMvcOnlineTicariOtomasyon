@@ -1,0 +1,39 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes;
+@model List<MvcOnlineTicariOtomasyon.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th> ID </th>
+        <th> NAME </th>
+        <th> BRAND </th>
+        <th> STOCK </th>
+        <th> PRICE </th>
+        <th> SALE PRICE </th>
+        <th> STATUS </th>
+        <th> CATEGORY ID </th>
+        <th> VISUAL </th>
+
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td> @p.ProductID</td>
+            <td> @p.ProductName</td>
+            <td> @p.Brand</td>
+            <td> @p.Stock</td>
+            <td> @p.Price</td>
+            <td> @p.SalePrice</td>
+            <td> @p.Status</td>
+            <td> @p.Category.CategoryName</td>
+            <td> @p.ProductVisual</td>
+
+        </tr>
+    }
+</table>
+
+
+

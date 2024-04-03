@@ -28,7 +28,7 @@ namespace MvcOnlineTicariOtomasyon.Models
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string ProductVisual { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
         public ICollection<SalesTransaction> SalesTransactions{ get; set; }
 
 }
