@@ -7,15 +7,17 @@
 <br />
 <table class="table table-bordered">
     <tr>
-        <th> ID </th>
-        <th> NAME </th>
-        <th> BRAND </th>
-        <th> STOCK </th>
-        <th> PRICE </th>
-        <th> SALE PRICE </th>
-        <th> STATUS </th>
-        <th> CATEGORY ID </th>
-        <th> VISUAL </th>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Brand </th>
+        <th> Stock </th>
+        <th> Price </th>
+        <th> Sale price </th>
+        <th> Status </th>
+        <th> Category Id </th>
+        <th> Visual </th>
+        <th>  </th>
+        <th>  </th>
 
     </tr>
     @foreach (var p in Model)
@@ -30,10 +32,16 @@
             <td> @p.Status</td>
             <td> @p.Category.CategoryName</td>
             <td> @p.ProductVisual</td>
-
+            <td>
+                <a href="/Product/ProductDelete/@p.ProductID" class="btn btn-danger"> Delete </a>
+            </td>
+            <td>
+                <a href="/Product/ProductUpdate/@p.ProductID" class="btn btn-success"> Update </a>
+            </td>
         </tr>
     }
 </table>
 
+<a href="/Product/NewProduct/" class="btn btn-primary"> Add Product </a>
 
 

@@ -22,14 +22,15 @@ namespace MvcOnlineTicariOtomasyon.Models
         public string Brand { get; set; } //marka
         public short Stock { get; set; }
         public decimal Price { get; set; } //alış fiyatı
-        public decimal SalePrice { get; set;} //satış fiyatı
+        public decimal SalePrice { get; set; } //satış fiyatı
         public bool Status { get; set; } //ürünler için kritik seviye belirleme
 
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string ProductVisual { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        public ICollection<SalesTransaction> SalesTransactions{ get; set; }
+        public ICollection<SalesTransaction> SalesTransactions { get; set; }
 
-}
+    }
 }
