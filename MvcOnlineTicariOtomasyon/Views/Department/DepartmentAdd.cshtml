@@ -1,0 +1,17 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Department
+@{
+    ViewBag.Title = "DepartmentAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Department</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.DepartmentName)
+    <br />
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info"> Save </button>
+
+</form>
