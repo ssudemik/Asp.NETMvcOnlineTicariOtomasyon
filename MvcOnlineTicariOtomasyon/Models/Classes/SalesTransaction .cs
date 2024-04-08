@@ -15,8 +15,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public decimal Price { get; set; }
         public decimal Sum { get; set; } //toplam tutar
 
-        public Product Product { get; set; }//ürün                                        
-        public Customer Customer { get; set; }//müşteri                        
-        public Employee Employee { get; set; }//personel
+        public int ProductID { get; set; }
+        public int CustomerID { get; set; }
+        public int EmployeeID { get; set; }
+
+        public virtual Product Product { get; set; }//ürün                                        
+        public virtual Customer Customer { get; set; }//müşteri                        
+        public virtual Employee Employee { get; set; }//personel
     }
 }

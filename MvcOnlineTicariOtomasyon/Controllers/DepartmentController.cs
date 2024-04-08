@@ -14,7 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context(); //c adında nesne üretiyoruz.
         public ActionResult Index()
         {
-            var values = c.Departments.ToList(); //departmanın içerisindeki tüm değerleri listelemek için
+            var values = c.Departments.Where(x => x.Status == true).ToList(); //departmanın içerisindeki tüm değerleri listelemek için
             return View(values);
         }
         [HttpGet] //form(view) yüklendiği zaman bu kısım çalışsın. boş bir sayfa gelsin
@@ -32,16 +32,35 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult DepartmentDelete(int ID)
         {
             var dpt = c.Departments.Find(ID);
-            c.Departments.Remove(dpt);    //dpt satırın tamamını tutuyor.
+            dpt.Status = false;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult DepartmenUpdate(Department d)
+        public ActionResult DepartmentBring(int ID)
+        {
+            var dpt = c.Departments.Find(ID);
+            return View("DepartmentBring", dpt);
+        }
+        public ActionResult DepartmentUpdate(Department d)
         {
             var dpt = c.Departments.Find(d.DepartmentID); //dpt adında bir değişken oluşturulup bu değişken yardımı ile ID hafızaya alındı
             dpt.DepartmentName = d.DepartmentName; //bu ID ye göre işlem yapması için d.DepartmentName yeni değer diğer taraf atanacak değer.
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult DepartmentDetail(int ID)
+        {
+            var values = c.Employees.Where(x => x.DepartmentId == ID).ToList();
+            var dpt = c.Departments.Where(x => x.DepartmentID == ID).Select(y => y.DepartmentName).FirstOrDefault();
+            ViewBag.value = dpt;
+            return View(values);
+        }
+        public ActionResult DepartmentEmployeeSales(int ID)
+        {
+            var values = c.SalesTransactions.Where(x => x.EmployeeID == ID).ToList();
+            var emp = c.Employees.Where(x => x.EmployeeID == ID).Select(y => y.EmployeeName + " " + y.EmployeeSurname).FirstOrDefault();
+            ViewBag.value = emp;
+            return View(values);
         }
     }
 }

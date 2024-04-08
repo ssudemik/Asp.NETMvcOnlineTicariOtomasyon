@@ -291,6 +291,9 @@
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Department\DepartmentAdd.cshtml" />
+    <Content Include="Views\Department\DepartmentBring.cshtml" />
+    <Content Include="Views\Department\DepartmentDetail.cshtml" />
+    <Content Include="Views\Department\DepartmentEmployeeSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

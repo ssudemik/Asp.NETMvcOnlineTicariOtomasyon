@@ -25,6 +25,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public string EmployeeVisual { get; set; } //çalışan görsel
 
         public ICollection<SalesTransaction> SalesTransactions { get; set; }
-        public Department Department { get; set; }  //departman ile personel arasındaki bağlantı
+        public int DepartmentId { get; set; }
+        public virtual Department Department { get; set; }  //departman ile personel arasındaki bağlantı
     }
-}
+} 
