@@ -18,6 +18,6 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public int Amount { get; set; } //miktat
         public decimal UnitPrice { get; set; } //birimFiyat
         public decimal Sum { get; set; } //tutar
-        public Bills Bills { get; set; } // bir fatura kaleminin sadece bir tane faturası olabilir diye
+        public Bill Bills { get; set; } // bir fatura kaleminin sadece bir tane faturası olabilir diye
     }
 }

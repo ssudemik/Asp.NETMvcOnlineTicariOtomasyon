@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Visual </th>
+        <th> Depatment </th>
+        <th>  </th>
+        <th>  </th>
+
+
+    </tr>
+    @foreach (var c in Model)
+    {
+        //veri sıralama döngüsü.
+        //bir döngü oluşturdum. bu döngü c adında bir değişken içeriyor. c modele bağlı ,
+        //model kategoriye bağlı ,kategori de controller tarafındaki methoda bağlı
+
+        <tr>
+            <td> @c.EmployeeID </td>
+            <td> @c.EmployeeName </td>
+            <td> @c.EmployeeSurname </td>
+            <td> @c.EmployeeVisual </td>
+            <td> @c.Department.DepartmentName </td>
+            
+            
+            <td> <a href="/Employee/EmployeeBring/@c.EmployeeID" class="btn btn-success"> Update </a></td>
+            <td> <a href="/Department/DepartmentEmployeeSales/@c.EmployeeID" class="btn btn-succses" style="background-color:hotpink; color:white"> Detail </a></td>
+        </tr>
+    }
+</table>
+<a href="/Employee/EmployeeAdd" class="btn btn-info"> Add Employee  </a>

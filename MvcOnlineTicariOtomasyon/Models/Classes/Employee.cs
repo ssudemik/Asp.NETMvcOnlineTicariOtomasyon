@@ -18,7 +18,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public string EmployeeName { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage = "You can write up to 30 characters :) ")]
         public string EmployeeSurname { get; set; }
 
         [Column(TypeName = "Varchar")]

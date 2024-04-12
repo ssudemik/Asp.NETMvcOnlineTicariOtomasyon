@@ -25,6 +25,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost] //bir butona tıklandığı zaman bu kısım çalışsın
         public ActionResult DepartmentAdd(Department d)
         {
+            d.Status = true;
             c.Departments.Add(d); //d nesnesi view tarafından gönderilecek parametreleri tutacak
             c.SaveChanges();
             return RedirectToAction("Index");

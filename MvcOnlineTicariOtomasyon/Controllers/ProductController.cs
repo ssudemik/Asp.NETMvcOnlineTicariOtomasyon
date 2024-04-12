@@ -40,6 +40,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult NewProduct(Product p) //ürün sınıfından nesne türetildi
         {
+            p.Status = true;
             c.Products.Add(p);
             c.SaveChanges();
             return RedirectToAction("Index"); //aksiyona gitmek için kullanılıyor

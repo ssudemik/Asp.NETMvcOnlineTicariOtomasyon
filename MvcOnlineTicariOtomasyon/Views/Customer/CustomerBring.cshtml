@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Customer
+
+@{
+    ViewBag.Title = "CustomerBring";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Customer Update</h2>
+<br />
+@using (Html.BeginForm("CustomerUpdate", "Customer", FormMethod.Post)) //bu sayfa yüklendikten sonra bir post
+                                                                      //işlemi gerçekleştiğine hangi action resoult çalışacağını
+                                                                      //belirlemek için.
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CustomerName)
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.CustomerID)
+        @Html.ValidationMessageFor(x => x.CustomerName, "", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(x => x.CustomerSurname)
+        @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerSurname, "", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(x => x.CustomerCity)
+        @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerCity, "", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(x => x.CustomerMail)
+        @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerMail, "", new { @class = "text-danger" })
+        <br />
+
+        <button class="btn btn-warning"> Update </button>
+    </div>
+
+    
+}

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
-    public class Bills
+    public class Bill
     {
         [Key]
         public int BillsID { get; set; }

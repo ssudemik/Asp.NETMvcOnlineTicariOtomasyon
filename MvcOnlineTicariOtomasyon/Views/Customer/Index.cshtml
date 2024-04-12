@@ -1,0 +1,36 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th> Customer ID</th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> City </th>
+        <th> Mail </th>
+        <th>  </th>
+        <th>  </th>
+        <th>  </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CustomerID </td>
+            <td>@x.CustomerName </td>
+            <td>@x.CustomerSurname </td>
+            <td>@x.CustomerCity </td>
+            <td>@x.CustomerMail </td>
+            <td> <a href="/Customer/CustomerDelete/@x.CustomerID" class="btn btn-danger"> Delete </a></td>
+            <td> <a href="/Customer/CustomerBring/@x.CustomerID" class="btn btn-success"> Update </a></td>
+            <td> <a href="/Customer/CustomerSales/@x.CustomerID" class="btn btn-succses" style="background-color:hotpink; color:white"> Sales History </a> </td>
+
+        </tr>
+    }
+</table>
+<a href="/Customer/CustomerAdd/" class="btn btn-info"> Add Customer </a>
+
