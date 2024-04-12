@@ -14,6 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
+        [Required(ErrorMessage = "You can not pass this field empty!")]
         public string EmployeeName { get; set; }
 
         [Column(TypeName = "Varchar")]
