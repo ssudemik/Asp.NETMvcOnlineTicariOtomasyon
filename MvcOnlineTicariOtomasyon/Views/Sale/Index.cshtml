@@ -1,0 +1,62 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Sales</h2>
+<br />
+<table id ="tbl1" class="table table-striped" style="margin-top:20px">
+    <thead class="thead-dark">
+        <tr>
+            <th> ID </th>
+            <th> Product </th>
+            <th> Customer </th>
+            <th> Employee </th>
+            <th> Piece </th>
+            <th> Price </th>
+            <th> Sum </th>
+            <th> Date </th>
+            <th>  </th>
+            <th> Employee Detail  </th>
+        </tr>
+    </thead>
+
+    @foreach (var c in Model)
+    {
+        //veri sıralama döngüsü.
+        //bir döngü oluşturdum. bu döngü c adında bir değişken içeriyor. c modele bağlı ,
+        //model kategoriye bağlı ,kategori de controller tarafındaki methoda bağlı
+
+        <tr>
+            <td> @c.SalesID </td>
+            <td> @c.Product.ProductName </td>
+            <td> @c.Customer.CustomerName @c.Customer.CustomerSurname </td>
+            <td> @c.Employee.EmployeeName @c.Employee.EmployeeSurname </td>
+            <td> @c.Piece </td>
+            <td> @c.Price </td>
+            <td> @c.Sum </td>
+            <td> @c.Date </td>
+
+
+            <td> <a href="/Sale/SaleBring/@c.SalesID" class="btn btn-success"> Update </a></td>
+            <td> <a href="/Sale/SaleDetail/@c.SalesID" class="btn btn-succses" style="background-color:hotpink; color:white"> Detail </a></td>
+        </tr>
+    }
+</table>
+<a href="/Sale/NewSale" class="btn btn-info"> New Sales </a>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+

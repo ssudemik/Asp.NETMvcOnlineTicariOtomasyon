@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SalesTransaction>
+
+@{
+    ViewBag.Title = "SaleDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2> Sale Detail </h2>
+<br />
+
+<table class="table table-condensed">
+    <tr>
+        <th> Sale ID </th>
+        <th> Product </th>
+        <th> Customer </th>
+        <th> Employee </th>
+        <th> Price </th>
+        <th> Piece </th>
+        <th> Sum </th>
+        <th> Date </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesID </td>
+            <td>@x.Product.ProductName </td>
+            <td>@x.Customer.CustomerName @x.Customer.CustomerSurname </td>
+            <td>@x.Employee.EmployeeName @x.Employee.EmployeeSurname </td>
+            <td>@x.Price </td>
+            <td>@x.Piece </td>
+            <td>@x.Sum </td>
+            <td>@x.Date </td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn btn-default" style="background-color:chartreuse"> Print </button>
+

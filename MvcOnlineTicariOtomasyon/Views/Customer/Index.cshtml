@@ -6,17 +6,21 @@
 }
 
 <br />
-<table class="table table-striped">
-    <tr>
-        <th> Customer ID</th>
-        <th> Name </th>
-        <th> Surname </th>
-        <th> City </th>
-        <th> Mail </th>
-        <th>  </th>
-        <th>  </th>
-        <th>  </th>
-    </tr>
+<h2>Customer</h2>
+<br />
+<table id="tbl1" class="table table-striped" style="margin-top:20px">
+    <thead class="thead-dark">
+        <tr>
+            <th> Customer ID</th>
+            <th> Name </th>
+            <th> Surname </th>
+            <th> City </th>
+            <th> Mail </th>
+            <th>  </th>
+            <th>  </th>
+            <th>  </th>
+        </tr>
+    </thead>
     @foreach (var x in Model)
     {
         <tr>
@@ -34,3 +38,15 @@
 </table>
 <a href="/Customer/CustomerAdd/" class="btn btn-info"> Add Customer </a>
 
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

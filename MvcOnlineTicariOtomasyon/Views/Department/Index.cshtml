@@ -4,17 +4,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<br />
+<h2>Department</h2>
+<br />
+<table id="tbl1" class="table table-striped" style="margin-top:20px">
+    <thead class="thead-dark">
+        <tr>
+            <th> ID </th>
+            <th> Department Name </th>
+            <th>  </th>
+            <th>  </th>
+            <th>  </th>
 
-<table class="table table-bordered" style="margin-top:20px">
-    <tr>
-        <th> ID </th>
-        <th> Department Name </th>
-        <th>  </th>
-        <th>  </th>
-        <th>  </th>
 
-
-    </tr>
+        </tr>
+    </thead>
     @foreach (var c in Model)
     {
         //veri sıralama döngüsü.
@@ -36,3 +40,15 @@
 </table>
 <a href="/Department/DepartmentAdd" class="btn btn-info"> Add Department  </a>
 
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
