@@ -24,7 +24,10 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string TaxOffice { get; set;} //vergi dairesi
-        public DateTime Time { get; set;}
+
+        [Column(TypeName = "char")]
+        [StringLength(5)]
+        public string Time { get; set;}
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
@@ -33,6 +36,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Receiver { get; set;} //teslim alan
+
+        public decimal Sum { get; set;}
+
         public ICollection<BillCategory> BillCategorys { get; set; } //fatura nın birden fazla fatura kalemi olabili.
                                                                      //bir fatura kaleminin sadece bir tane faturası
                                                                      //olabilir diye. ilişki kurma.

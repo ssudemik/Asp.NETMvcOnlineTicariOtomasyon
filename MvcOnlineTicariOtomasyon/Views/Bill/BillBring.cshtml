@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Bill
+@{
+    ViewBag.Title = "BillBring";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Bill Update</h2>
+<br />
+
+@using (Html.BeginForm("BillUpdate", "Bill", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.BillsID)
+
+    @Html.LabelFor(x => x.BillsSerialNo)
+    @Html.TextBoxFor(x => x.BillsSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillsNo)
+    @Html.TextBoxFor(x => x.BillsNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxOffice)
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Deliverer)
+    @Html.TextBoxFor(x => x.Deliverer, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Receiver)
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning" style="color:white"> Update </button>
+
+}

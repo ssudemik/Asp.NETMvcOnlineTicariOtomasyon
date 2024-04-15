@@ -1,45 +1,48 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Classes
-@model List<Department>
+@model List<Bill>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <br />
-<h2>Department</h2>
+<h2> Bills </h2>
 <br />
+
 <table id="tbl1" class="table table-striped" style="margin-top:20px">
     <thead class="thead-dark">
         <tr>
             <th> ID </th>
-            <th> Department Name </th>
+            <th> Bills Serial No  </th>
+            <th> Bills No </th>
+            <th> Tax Office </th>
+            <th> Date </th>
+            <th> Time </th>
+            <th> Deliverer </th>
+            <th> Receiver </th>
+            <th> Sum </th>
             <th>  </th>
             <th>  </th>
-            <th>  </th>
-
-
         </tr>
     </thead>
     @foreach (var c in Model)
-    {
-        //veri sıralama döngüsü.
-        //bir döngü oluşturdum. bu döngü c adında bir değişken içeriyor. c modele bağlı ,
-        //model kategoriye bağlı ,kategori de controller tarafındaki methoda bağlı
-
+     {
         <tr>
-            <td>
-                @c.DepartmentID
-            </td>
-            <td>
-                @c.DepartmentName
-            </td>
-            <td> <a href="/Department/DepartmentDelete/@c.DepartmentID" class="btn btn-danger"> Delete </a></td>
-            <td> <a href="/Department/DepartmentBring/@c.DepartmentID" class="btn btn-success"> Update </a></td>
-            <td> <a href="/Department/DepartmentDetail/@c.DepartmentID" class="btn btn-succses" style="background-color:hotpink; color:white"> Detail </a></td>
+            <td>@c.BillsID </td>
+            <td>@c.BillsSerialNo </td>
+            <td>@c.BillsNo </td>
+            <td>@c.TaxOffice </td>
+            <td>@c.Date </td>
+            <td>@c.Time </td>
+            <td>@c.Deliverer </td>
+            <td>@c.Receiver </td>
+            <td>@c.Sum </td>
+            <td> <a href="/Bill/BillBring/@c.BillsID" class="btn btn-success"> Update </a></td>
+            <td> <a href="/Bill/BillDetail/@c.BillsID" class="btn btn-succses" style="background-color:hotpink; color:white"> Detail</a></td>
         </tr>
-    }
+     }
 </table>
-<a href="/Department/DepartmentAdd" class="btn btn-info" style="color:white"> Add Department  </a>
-
+<a href="/Bill/BillAdd" class="btn btn-info" style="color:white"> New Bill </a>
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
