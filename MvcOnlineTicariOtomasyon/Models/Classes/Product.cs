@@ -26,7 +26,7 @@ namespace MvcOnlineTicariOtomasyon.Models
         public bool Status { get; set; } //ürünler için kritik seviye belirleme
 
         [Column(TypeName = "Varchar")]
-        [StringLength(250)]
+        [StringLength(8000)]
         public string ProductVisual { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
