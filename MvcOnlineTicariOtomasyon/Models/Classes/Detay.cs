@@ -7,14 +7,14 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
-    public class Detail
+    public class Detay
     {
         [Key]
-        public int DetailID { get; set; }
+        public int ID { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
-        public string productname { get; set; }
+        public string Name { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(2000)]

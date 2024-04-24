@@ -1,5 +1,6 @@
-﻿@model MvcOnlineTicariOtomasyon.Models.Product
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
 
+@model List<Product>
 @{
     ViewBag.Title = "ProductList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -37,6 +38,6 @@
     @Html.LabelFor(x => x.ProductVisual)
     @Html.TextBoxFor(x => x.ProductVisual, new { @class = "form-control" })
     <br />
-    <button class="btn btn-warning" style="color:white" > Update </button>
+    <button class="btn btn-warning" style="color:white"> Update </button>
 
 }

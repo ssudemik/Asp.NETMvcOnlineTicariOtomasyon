@@ -132,26 +132,41 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DetailProductController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\VisualController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009070642300_deneme.cs" />
+    <Compile Include="Migrations\202009070642300_deneme.designer.cs">
+      <DependentUpon>202009070642300_deneme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009070648489_yeni.cs" />
+    <Compile Include="Migrations\202009070648489_yeni.designer.cs">
+      <DependentUpon>202009070648489_yeni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009171004270_denemekargo1.cs" />
+    <Compile Include="Migrations\202009171004270_denemekargo1.designer.cs">
+      <DependentUpon>202009171004270_denemekargo1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\BillCategory.cs" />
     <Compile Include="Models\Classes\Bill.cs" />
     <Compile Include="Models\Classes\Category.cs" />
-    <Compile Include="Models\Classes\Class1.cs" />
+    <Compile Include="Models\Classes\Class01.cs" />
+    <Compile Include="Models\Classes\ClassGroup.cs" />
+    <Compile Include="Models\Classes\ClassGroup2.cs" />
+    <Compile Include="Models\Classes\ClassGroup3.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Customer.cs" />
     <Compile Include="Models\Classes\Department.cs" />
-    <Compile Include="Models\Classes\Detail.cs" />
+    <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
     <Compile Include="Models\Classes\Product.cs" />
@@ -2393,6 +2408,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="App_Browsers\qt.browser" />
     <Content Include="AdminLTE-3.0.4\.babelrc" />
     <Content Include="AdminLTE-3.0.4\.browserslistrc" />
     <Content Include="AdminLTE-3.0.4\.editorconfig" />
@@ -2853,7 +2869,13 @@
     <Content Include="thumber\scss\_site-base.scss" />
     <Content Include="thumber\scss\_site-blocks.scss" />
     <Content Include="thumber\scss\_site-navbar.scss" />
-    <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\DetailProduct\Index.cshtml" />
+    <Content Include="Views\DetailProduct\Deneme.cshtml" />
+    <Content Include="Views\Statistics\SimpleTable.cshtml" />
+    <Content Include="Views\Statistics\Partial1.cshtml" />
+    <Content Include="Views\Statistics\Partial2.cshtml" />
+    <Content Include="Views\Statistics\Partial3.cshtml" />
+    <Content Include="Views\Statistics\Partial4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2895,6 +2917,17 @@
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-interaction\main.d.ts" />
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-timegrid\main.d.ts" />
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar\main.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009070642300_deneme.resx">
+      <DependentUpon>202009070642300_deneme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009070648489_yeni.resx">
+      <DependentUpon>202009070648489_yeni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009171004270_denemekargo1.resx">
+      <DependentUpon>202009171004270_denemekargo1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

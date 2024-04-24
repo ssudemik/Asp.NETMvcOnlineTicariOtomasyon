@@ -77,5 +77,57 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View();
         }
+
+        public ActionResult SimpleTable() 
+        {
+            var query = (from x in c.Customers
+                         where (x.Status == true)
+                         group x by x.CustomerCity into g //şehrine göre gruplandırdık
+                         select new ClassGroup
+                         {
+                             City = g.Key,
+                             Count = g.Count()
+                         }).OrderByDescending(x => x.Count).Take(5);
+            int value = c.Customers.Where(x=>x.Status == true).Count();
+            ViewBag.v1 = value;
+            return View(query); 
+        }
+
+        public PartialViewResult Partial1()
+        {
+            var query2 = (from x in c.Employees
+                          group x by x.Department.DepartmentName into g
+                          select new ClassGroup2
+                          {
+                              Department = g.Key,
+                              Count = g.Count()
+                          }).OrderByDescending(x => x.Count);
+            return PartialView(query2);
+        }
+        public PartialViewResult Partial2()
+        {
+            var query = c.Customers.ToList();
+            return PartialView(query);
+        }
+        public PartialViewResult Partial3()
+        {
+            var query = c.Products.ToList();
+            return PartialView(query);
+        }
+
+        public PartialViewResult Partial4()
+        {
+            var query3 = (from x in c.Products
+                          where (x.Status == true)
+                          group x by x.Brand into g
+                          select new ClassGroup3
+                          {
+                              brand = g.Key,
+                              Count = g.Count()
+                          }).OrderByDescending(x => x.Count).Take(5);
+            int value3 = c.Products.Where(x => x.Status == true).Count();
+            ViewBag.v3 = value3;
+            return PartialView(query3);
+        }
     }
 }
