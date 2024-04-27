@@ -6,19 +6,19 @@ namespace MvcOnlineTicariOtomasyon.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class yeni : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(yeni));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009070648489_yeni"; }
+            get { return "202404271907234_Initial"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

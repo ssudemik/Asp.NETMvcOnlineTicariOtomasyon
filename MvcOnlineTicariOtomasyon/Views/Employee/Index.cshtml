@@ -31,7 +31,21 @@
             <td> @c.EmployeeID </td>
             <td> @c.EmployeeName </td>
             <td> @c.EmployeeSurname </td>
-            <td> @c.EmployeeVisual </td>
+            <td>
+
+                <a href="@c.EmployeeVisual" class="d-block photo-item" data-fancybox="gallery">
+
+                    <img src="@c.EmployeeVisual" style="width:100px" />
+
+                    <div class="photo-text-more">
+
+                        <span class="icon icon-search"></span>
+
+                    </div>
+
+                </a>
+
+            </td>
             <td> @c.Department.DepartmentName </td>
 
 

@@ -142,17 +142,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009070642300_deneme.cs" />
-    <Compile Include="Migrations\202009070642300_deneme.designer.cs">
-      <DependentUpon>202009070642300_deneme.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009070648489_yeni.cs" />
-    <Compile Include="Migrations\202009070648489_yeni.designer.cs">
-      <DependentUpon>202009070648489_yeni.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009171004270_denemekargo1.cs" />
-    <Compile Include="Migrations\202009171004270_denemekargo1.designer.cs">
-      <DependentUpon>202009171004270_denemekargo1.cs</DependentUpon>
+    <Compile Include="Migrations\202404271907234_Initial.cs" />
+    <Compile Include="Migrations\202404271907234_Initial.designer.cs">
+      <DependentUpon>202404271907234_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
@@ -171,6 +163,7 @@
     <Compile Include="Models\Classes\Expense.cs" />
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\SalesTransaction .cs" />
+    <Compile Include="Models\Classes\ToDoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2876,6 +2869,7 @@
     <Content Include="Views\Statistics\Partial2.cshtml" />
     <Content Include="Views\Statistics\Partial3.cshtml" />
     <Content Include="Views\Statistics\Partial4.cshtml" />
+    <Content Include="Views\Employee\EmployeeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2919,14 +2913,8 @@
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar\main.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009070642300_deneme.resx">
-      <DependentUpon>202009070642300_deneme.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009070648489_yeni.resx">
-      <DependentUpon>202009070648489_yeni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009171004270_denemekargo1.resx">
-      <DependentUpon>202009171004270_denemekargo1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202404271907234_Initial.resx">
+      <DependentUpon>202404271907234_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
