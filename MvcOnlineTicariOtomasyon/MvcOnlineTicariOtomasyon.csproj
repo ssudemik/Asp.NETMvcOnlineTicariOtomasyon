@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\ToDoListController.cs" />
     <Compile Include="Controllers\VisualController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2870,6 +2871,7 @@
     <Content Include="Views\Statistics\Partial3.cshtml" />
     <Content Include="Views\Statistics\Partial4.cshtml" />
     <Content Include="Views\Employee\EmployeeList.cshtml" />
+    <Content Include="Views\ToDoList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

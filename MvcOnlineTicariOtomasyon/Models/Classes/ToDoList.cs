@@ -20,21 +20,3 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public bool Status { get; set; }
     }
 }
-
-
-
-//namespace MvcOnlineTicariOtomasyon.Models.Classes
-//{
-//    public class ToDoList
-//    {
-//        [Key]
-//        public int ToDoID { get; set; }
-
-//        [Column(TypeName = "Varchar")]
-//        [StringLength(500)]
-//        public string Title { get; set; }
-
-//        [Column(TypeName = "bit")]
-//        public bool Status { get; set; }
-//    }
-//}
