@@ -12,6 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Key]
         public int DepartmentID { get; set; }
 
+        [Display(Name = " Department Name ")]
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string DepartmentName{ get; set; }

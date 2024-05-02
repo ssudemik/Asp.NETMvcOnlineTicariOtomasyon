@@ -12,15 +12,18 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Key]
         public int EmployeeID { get; set; }
 
+        [Display(Name = " Employee Name ")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         [Required(ErrorMessage = "You can not pass this field empty!")]
         public string EmployeeName { get; set; }
 
+        [Display(Name = " Employee Surname ")]
         [Column(TypeName = "Varchar")]
         [StringLength(30, ErrorMessage = "You can write up to 30 characters :) ")]
         public string EmployeeSurname { get; set; }
 
+        [Display(Name = " Employee Visual ")]
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string EmployeeVisual { get; set; } //çalışan görsel
