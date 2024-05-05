@@ -1,0 +1,32 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_CustomerPanelLayout.cshtml";
+}
+<br />
+<h2>My Sale Transaction</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th> Product Name </th>
+        <th> Price </th>
+        <th> Piece </th>
+        <th> Total Price</th>
+        <th> Date </th>
+    </tr>
+
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td> @x.Product.ProductName</td>
+                    <td> @x.Price </td>
+                    <td> @x.Piece </td>
+                    <td> @x.Sum </td>
+                    <td> @x.Date </td>
+                </tr>
+            }
+</table>
+
+

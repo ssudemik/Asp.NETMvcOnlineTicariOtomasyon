@@ -24,14 +24,26 @@
         <th> Visual </th>
         <th> Sales </th>
     </tr>
-    @foreach(var x in Model)
+    @foreach (var x in Model)
     {
-    <tr>
-        <td> @x.EmployeeID </td>
-        <td> @x.EmployeeName </td>
-        <td> @x.EmployeeSurname </td>
-        <td> @x.EmployeeVisual </td>
-        <td> <a href="/Department/DepartmentEmployeeSales/@x.EmployeeID" class="btn btn-default" style="background-color:chartreuse"> Sales </a> </td>
-    </tr>
+        <tr>
+            <td> @x.EmployeeID </td>
+            <td> @x.EmployeeName </td>
+            <td> @x.EmployeeSurname </td>
+            <td>
+                <a href="@x.EmployeeVisual" class="d-block photo-item" data-fancybox="gallery">
+
+                    <img src="@x.EmployeeVisual" style="width:100px" />
+
+                    <div class="photo-text-more">
+
+                        <span class="icon icon-search"></span>
+
+                    </div>
+
+                </a>
+            </td>
+            <td> <a href="/Department/DepartmentEmployeeSales/@x.EmployeeID" class="btn btn-default" style="background-color:chartreuse"> Sales </a> </td>
+        </tr>
     }
 </table>
