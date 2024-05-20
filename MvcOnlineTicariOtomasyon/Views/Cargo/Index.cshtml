@@ -1,0 +1,49 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2> Cargo </h2>
+
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        CargoTrackingNo:@Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Employee</th>
+        <th>Customer</th>
+        <th> Tracking Code </th>
+        <th> Date </th>
+        <th> Details </th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Employee</td>
+            <td>@k.Customer</td>
+            <td>@k.TrackingCode</td>
+            <td>@k.Date</td>
+            <td><a href="/Cargo/CargoTracking/@k.TrackingCode/ " class="btn btn-default" style="background-color:chartreuse"> Deatils </a></td>
+        </tr>
+    }
+</table>
+<a href="/Cargo/NewCargo" class="btn btn-info"> New Cargo </a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script>
+        $('#tbl1').dataTable({});
+    </script>*@

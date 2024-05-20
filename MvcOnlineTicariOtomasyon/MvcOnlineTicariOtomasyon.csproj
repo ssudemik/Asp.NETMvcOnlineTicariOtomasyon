@@ -54,11 +54,17 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\..\..\Downloads\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -113,9 +119,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -134,16 +137,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DetailProductController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\ToDoListController.cs" />
@@ -155,12 +162,19 @@
     <Compile Include="Migrations\202404271907234_Initial.designer.cs">
       <DependentUpon>202404271907234_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405151225594_cargoTest.cs" />
+    <Compile Include="Migrations\202405151225594_cargoTest.designer.cs">
+      <DependentUpon>202405151225594_cargoTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\BillCategory.cs" />
     <Compile Include="Models\Classes\Bill.cs" />
+    <Compile Include="Models\Classes\CargoDetail.cs" />
+    <Compile Include="Models\Classes\CargoTracking.cs" />
     <Compile Include="Models\Classes\Category.cs" />
     <Compile Include="Models\Classes\Class01.cs" />
+    <Compile Include="Models\Classes\graphClass.cs" />
     <Compile Include="Models\Classes\ClassGroup.cs" />
     <Compile Include="Models\Classes\ClassGroup2.cs" />
     <Compile Include="Models\Classes\ClassGroup3.cs" />
@@ -170,6 +184,7 @@
     <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
+    <Compile Include="Models\Classes\Messages.cs" />
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\SalesTransaction .cs" />
     <Compile Include="Models\Classes\ToDoList.cs" />
@@ -2935,9 +2950,25 @@
     <Content Include="Views\CustomerPanel\Index.cshtml" />
     <Content Include="Views\Shared\_CustomerPanelLayout.cshtml" />
     <Content Include="Views\CustomerPanel\Order.cshtml" />
+    <Content Include="Views\Alerts\Index.cshtml" />
+    <Content Include="Views\Product\ProductSale.cshtml" />
+    <Content Include="Views\Cargo\Index.cshtml" />
+    <Content Include="Views\Cargo\NewCargo.cshtml" />
+    <Content Include="Views\Cargo\CargoTracking.cshtml" />
+    <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Graphic\Index2.cshtml" />
+    <Content Include="Views\Graphic\Index3.cshtml" />
+    <Content Include="Views\Graphic\Index5.cshtml" />
+    <Content Include="Views\Graphic\Index6.cshtml" />
+    <Content Include="Views\Graphic\Index7.cshtml" />
+    <Content Include="Views\CustomerPanel\Inbox.cshtml" />
+    <Content Include="Views\CustomerPanel\MessagesDetail.cshtml" />
+    <Content Include="Views\CustomerPanel\Sent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Messages\" />
     <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
@@ -2980,6 +3011,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202404271907234_Initial.resx">
       <DependentUpon>202404271907234_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405151225594_cargoTest.resx">
+      <DependentUpon>202405151225594_cargoTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

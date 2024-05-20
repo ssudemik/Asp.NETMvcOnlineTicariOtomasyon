@@ -1,0 +1,42 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.SalesTransaction
+@{
+    ViewBag.Title = "ProductSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>ProductSale</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ProductID)
+    <input type="text" name="ProductID" value="@ViewBag.v1" class="form-control" readonly />
+    <br />
+    @Html.LabelFor(x => x.EmployeeID)
+    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.v3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CustomerID)
+    @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Piece)
+    <input type="number" class="form-control" max="10" min="0" placeholder=" Choose " id="txt1" onchange="sum();" name="Piece" />
+    <br />
+    @Html.LabelFor(x => x.Price)
+    <input type="text" name="Price" value="@ViewBag.v2" class="form-control" id="txt2" onkeyup="sum();" />
+    <br />
+    @Html.LabelFor(x => x.Sum)
+    <input type="text" name="Sum" value="0" class="form-control" id="txt3" readonly />
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+    <br />
+    <button class="btn btn-primary"> Sale </button>
+</form>
+<br />
+<script>
+    function sum() {
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var sonuc = parseInt(sayi1) * parseInt(sayi2); //inte dönüştür topla
+        if (!isNaN(sonuc)) { // boş değilse
+            document.getElementById('txt3').value = sonuc;
+        }
+    }
+</script>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
 
 namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
@@ -21,6 +22,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         public DbSet<SalesTransaction> SalesTransactions { get; set; }
         public DbSet<Detay> detays { get; set; }
         public DbSet<ToDoList> toDoLists { get; set; }
-        
+        public DbSet<CargoDetail> CargoDetails { get; set; }
+        public DbSet<CargoTracking> CargoTrackings { get; set; }
+        public DbSet<Messages> Messages { get; set; }
     }
 }

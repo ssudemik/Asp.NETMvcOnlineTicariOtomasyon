@@ -8,28 +8,28 @@
 <h2>Customer Information Panel</h2>
 <br />
 
-@using(Html.BeginForm("Index2", "CustomerPanel1", FormMethod.Post))
-            {
-                <table class="table table-bordered">
-                    <tr>
-                        <td>
-                            <label> Mail account : @HttpContext.Current.User.Identity.Name  </label> @*identity = kimlik anlamına geliyor sisteme giriş
-                yapan kullanıcının kimlik değerini taşımak için.*@
+@using (Html.BeginForm("Index2", "CustomerPanel1", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <label> Mail account : @HttpContext.Current.User.Identity.Name  </label> @*identity = kimlik anlamına geliyor sisteme giriş
+                    yapan kullanıcının kimlik değerini taşımak için.*@
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td> @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td> @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td>
-                    </tr>
-                    <tr>
-                        <td> @Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })</td>
-                    </tr>
-                </table>
-                <button class="btn btn-default" style="background-color:chartreuse"> Update My Informations </button>
-            }
+            </td>
+        </tr>
+        <tr>
+            <td> @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td> @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td> @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td> @Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <button class="btn btn-default" style="background-color:chartreuse"> Update My Informations </button>
+}

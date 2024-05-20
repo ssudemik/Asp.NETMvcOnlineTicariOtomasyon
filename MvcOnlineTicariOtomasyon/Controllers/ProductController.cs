@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using System.Web.WebPages.Html;
-using MvcOnlineTicariOtomasyon.Models;
 using MvcOnlineTicariOtomasyon.Models.Classes;
-using SelectListItem = System.Web.Mvc.SelectListItem;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -85,6 +81,31 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         { 
             var value = c.Products.ToList();
             return View(value);
+        }
+
+        [HttpGet]
+        public ActionResult ProductSale(int id)
+        {
+            List<SelectListItem> value3 = (from x in c.Employees.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.EmployeeName + " " + x.EmployeeSurname,
+                                               Value = x.EmployeeID.ToString()
+                                           }).ToList();
+
+            ViewBag.v3 = value3;
+            var value1 = c.Products.Find(id);
+            ViewBag.v1 = value1.ProductID;
+            ViewBag.v2 = value1.SalePrice;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ProductSale( SalesTransaction p)
+        {
+            p.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.SalesTransactions.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index", "Sale");
         }
     }
 }

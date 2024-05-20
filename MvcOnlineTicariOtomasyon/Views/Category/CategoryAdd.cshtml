@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
 <br />
 <h2>New Category</h2>
 <br />
@@ -12,6 +14,10 @@
     <br />
     @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
     <br />
-    <button class="btn btn-info"> Save </button>
-
+    <button class="btn btn-info" id="btn1"> Save </button>
+    <script>
+        $('#btn1').click(function () {
+            alert("Category Added Successfully")
+        });
+    </script>
 </form>

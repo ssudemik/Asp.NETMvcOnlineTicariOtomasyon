@@ -12,6 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Key]
         public int CategoryID { get; set; } //property oluşturma
 
+        [Display(Name = " Category Name ")]
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CategoryName { get; set; }

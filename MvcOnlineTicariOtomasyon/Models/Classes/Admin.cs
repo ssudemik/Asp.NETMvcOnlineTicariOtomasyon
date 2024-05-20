@@ -12,6 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Key]
         public int AdminID { get; set; }
 
+        [Display(Name = " User Name ")]
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string UserName { get; set; }

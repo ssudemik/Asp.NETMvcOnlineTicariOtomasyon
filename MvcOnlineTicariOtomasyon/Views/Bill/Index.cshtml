@@ -7,7 +7,7 @@
 
 <br />
 <h2> Bills </h2>
-<br />
+
 
 <table id="tbl1" class="table table-striped" style="margin-top:20px">
     <thead class="thead-dark">
@@ -23,12 +23,13 @@
             <th> Sum </th>
             <th>  </th>
             <th>  </th>
+            <th> New Bill </th>
         </tr>
     </thead>
     @foreach (var c in Model)
-     {
+    {
         <tr>
-            <td>@c.BillsID </td>
+            <td>@c.BillsID </td>s
             <td>@c.BillsSerialNo </td>
             <td>@c.BillsNo </td>
             <td>@c.TaxOffice </td>
@@ -36,13 +37,48 @@
             <td>@c.Time </td>
             <td>@c.Deliverer </td>
             <td>@c.Receiver </td>
-            <td>@c.Sum </td>
+            <td>@c.Sum ₺ </td>
             <td> <a href="/Bill/BillBring/@c.BillsID" class="btn btn-success"> Update </a></td>
             <td> <a href="/Bill/BillDetail/@c.BillsID" class="btn btn-succses" style="background-color:hotpink; color:white"> Detail</a></td>
+            <td> <a href="/Bill/BillDetail" class="btn btn-block" style="background-color:thistle; color:white"> Add </a></td>
         </tr>
-     }
+    }
 </table>
 <a href="/Bill/BillAdd" class="btn btn-info" style="color:white"> New Bill </a>
+<br />
+<br />
+<buttton typeof="button" class="btn btn-info" style="color:white" data-toggle="modal" data-target="#Modal1"> PopUp  </buttton>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> PopUp Dialog Screen </h5>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td> Serial No </td>
+                        <td> Bills No </td>
+                        <td> Transaction Amount </td>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td> @x.BillsSerialNo </td>
+                            <td> @x.BillsNo </td>
+                            <td> @x.Sum </td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"> Close </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -71,8 +71,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var value15 = c.SalesTransactions.Count(x => x.Date == today).ToString(); //günün satışları
             ViewBag.v15 = value15;
 
-            var value16 = c.SalesTransactions.Where(x => x.Date == today).Sum(y => y.Sum).ToString();
+            var value16 = c.SalesTransactions.Where(x => x.Date == today).Sum(y => (decimal?)y.Sum).ToString();
             //bugünün tarihine eşit olan değerlerin fiyatını getirir(sum) getirir ve bu değerlerin toplam tutarını(sum) string olarak döndürür.
+            if(value15 == "0")
+            {
+                value16 = "0";
+            }
             ViewBag.v16 = value16;
 
             return View();
@@ -96,7 +100,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public PartialViewResult Partial1()
         {
             var query2 = (from x in c.Employees
-                          group x by x.Department.DepartmentName into g
+                          group x by x.DepartmentName.DepartmentName into g
                           select new ClassGroup2
                           {
                               Department = g.Key,

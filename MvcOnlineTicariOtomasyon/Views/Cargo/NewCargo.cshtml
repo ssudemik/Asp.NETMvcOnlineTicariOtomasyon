@@ -1,0 +1,31 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.CargoDetail
+@{
+    ViewBag.Title = "NewCargo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Shipping Information Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.TrackingCode)
+    <input type="text" value="@ViewBag.trackingCode" class="form-control" readonly name="TrackingCode" />
+    <br />
+    @Html.LabelFor(x => x.Employee)
+    @Html.DropDownListFor(x => x.Employee, (List<SelectListItem>)ViewBag.vl3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Customer)
+    @Html.DropDownListFor(x => x.Customer, (List<SelectListItem>)ViewBag.vl2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    <input class="form-control" type="date" name="Date" />
+    <br />
+    @Html.LabelFor(x => x.Descriptions)
+    @Html.TextAreaFor(x => x.Descriptions, new { @class = "form-control" })
+    <br />
+    <a href="/QR/Index/ " class="btn btn-default" style="background-color:chartreuse"> QR Creat </a>
+    <br />
+    <br />
+    <button class="btn btn-default" style="background-color:chartreuse"> Save </button>
+</form>
+
