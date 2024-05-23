@@ -13,7 +13,7 @@ namespace MvcOnlineTicariOtomasyon.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202404271907234_Initial"; }
+            get { return "202405231752125_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -30,6 +30,6 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
 
         public ICollection<SalesTransaction> SalesTransactions { get; set; }
         public int DepartmentId { get; set; }
-        public virtual Department DepartmentName { get; set; }  //departman ile personel arasındaki bağlantı
+        public virtual Department Department { get; set; }  //departman ile personel arasındaki bağlantı
     }
 } 

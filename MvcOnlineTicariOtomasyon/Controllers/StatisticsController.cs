@@ -100,7 +100,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public PartialViewResult Partial1()
         {
             var query2 = (from x in c.Employees
-                          group x by x.DepartmentName.DepartmentName into g
+                          group x by x.Department.DepartmentName into g
                           select new ClassGroup2
                           {
                               Department = g.Key,

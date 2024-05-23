@@ -10,6 +10,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
 {
     public class Context : DbContext //database set gibi komutları kullanabilmek için miras alma işlemi
     {
+        public Context() : base("name=Context")
+        {
+        }
         public DbSet<Admin> Admins { get; set; } //tablo bazlı çalışılıcağından ve bu tablolar veri tabanına
         public DbSet<Customer> Customers { get; set; } // yansıtılacaığı için dbset sınıfından yararlanıldı. (<sınıf adı> sql adı)
         public DbSet<BillCategory> BillCategories { get; set; }
