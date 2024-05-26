@@ -3197,6 +3197,9 @@
     <Content Include="Views\ToDoList\Add.cshtml" />
     <Content Include="Views\CustomerPanel\CargoTracking.cshtml" />
     <Content Include="Views\CustomerPanel\CustomerCargoTracing.cshtml" />
+    <Content Include="Views\Visual\View.cshtml" />
+    <Content Include="Views\CustomerPanel\Partial1.cshtml" />
+    <Content Include="Views\CustomerPanel\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

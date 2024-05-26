@@ -28,6 +28,10 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [StringLength(30, ErrorMessage = "You can write up to 30 characters :) ")]
         public string CustomerCity { get; set; }
 
+        [Display(Name = " Customer Career ")]
+        [Column(TypeName = "Varchar")]
+        public string Career { get; set; }
+
         [Display(Name = " Customer Mail ")]
         [Column(TypeName = "Varchar")]
         [StringLength(50, ErrorMessage = "You can write up to 50 characters :) ")]

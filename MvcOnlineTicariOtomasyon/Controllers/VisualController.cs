@@ -15,5 +15,10 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var value = c.Products.ToList();
             return View(value);
         }
+        public ActionResult View()
+        {
+            var value = c.Products.ToList();
+            return View(value);
+        }
     }
 }
