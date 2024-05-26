@@ -1,0 +1,37 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "CargoTracking";
+    Layout = "~/Views/Shared/_CustomerPanelLayout.cshtml";
+}
+
+<h2> Cargo </h2>
+
+<br />
+@using (Html.BeginForm("CargoTracking", "CustomerPanel", FormMethod.Get))
+{
+    <p>
+        CargoTrackingNo:@Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Employee</th>
+        <th>Customer</th>
+        <th> Tracking Code </th>
+        <th> Date </th>
+        <th> Details </th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Employee</td>
+            <td>@k.Customer</td>
+            <td>@k.TrackingCode</td>
+            <td>@k.Date</td>
+            <td><a href="/CustomerPanel/CustomerCargoTracing/@k.TrackingCode/ " class="btn btn-default" style="background-color:chartreuse"> Deatils </a></td>
+        </tr>
+    }
+</table>
+

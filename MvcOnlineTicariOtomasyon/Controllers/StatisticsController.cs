@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Util;
 using MvcOnlineTicariOtomasyon.Models.Classes;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -93,6 +94,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
                              Count = g.Count()
                          }).OrderByDescending(x => x.Count).Take(5);
             int value = c.Customers.Where(x=>x.Status == true).Count();
+
+            
             ViewBag.v1 = value;
             return View(query); 
         }

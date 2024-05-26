@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "CustomerCargoTracing";
+    Layout = "~/Views/Shared/_CustomerPanelLayout.cshtml";
+}
+
+<h2>Customer Cargo Tracing</h2>
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Descriptions</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Descriptions</td>
+            <td>@x.DateTime</td>
+        </tr>
+    }
+</table>

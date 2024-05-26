@@ -28,5 +28,16 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var todolist = c.toDoLists.ToList();
             return View(todolist);
         }
+        public ActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost] //bir butona tıklandığı zaman bu kısım çalışsın
+        public ActionResult Add(ToDoList k)
+        {
+            c.toDoLists.Add(k); //k nesnesi view tarafından gönderilecek parametreleri tutacak
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

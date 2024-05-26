@@ -24,23 +24,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult NewCargo()
         {
 
-            List<SelectListItem> value2 = (from x in c.Customers.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.CustomerName + " " + x.CustomerSurname,
-                                               Value = x.CustomerName + " "+ x.CustomerSurname.ToString()
-                                           }).ToList();
-
-            List<SelectListItem> value3 = (from x in c.Employees.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.EmployeeName + " " + x.EmployeeSurname,
-                                               Value = x.EmployeeName + " "+ x.EmployeeSurname.ToString()
-                                           }).ToList();
-
-            ViewBag.vl2 = value2;
-            ViewBag.vl3 = value3;
-
 
             Random rnd = new Random();
             string[] caracter = { "A", "B", "C", "D", "E", "F", "G", "H", "K" };

@@ -12,10 +12,9 @@
     <input type="text" value="@ViewBag.trackingCode" class="form-control" readonly name="TrackingCode" />
     <br />
     @Html.LabelFor(x => x.Employee)
-    @Html.DropDownListFor(x => x.Employee, (List<SelectListItem>)ViewBag.vl3, new { @class = "form-control" })
-    <br />
+    @Html.TextBoxFor(x => x.Employee, new { @class = "form-control" })
     @Html.LabelFor(x => x.Customer)
-    @Html.DropDownListFor(x => x.Customer, (List<SelectListItem>)ViewBag.vl2, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.Customer, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Date)
     <input class="form-control" type="date" name="Date" />

@@ -1,0 +1,23 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.ToDoList
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h2>Add</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Title)
+    <br />
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btn1"> Save </button>
+    <script>
+        $('#btn1').click(function () {
+            alert("Category Added Successfully")
+        });
+    </script>
+</form>

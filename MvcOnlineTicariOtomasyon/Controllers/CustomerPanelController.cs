@@ -20,7 +20,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.m = Mail;
             return View(value);
         }
-        
+
         public ActionResult Order()
         {
             var Mail = (string)Session["CustomerMail"]; //sisteme giriş yapan mail adresini sessiona atadım
@@ -30,7 +30,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View(value);
         }
-       
+
         public ActionResult Inbox()
         {
             var Mail = (string)Session["CustomerMail"];
@@ -41,18 +41,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d2 = sent;
             return View(value);
         }
-       
+
         public ActionResult Sent()
         {
             var Mail = (string)Session["CustomerMail"];
             var value = c.Messages.Where(x => x.Sender == Mail).OrderByDescending(z => z.MessageID).ToList();
-            var sending = c.Messages.Count(x => x.Recipient  == Mail).ToString();
+            var sending = c.Messages.Count(x => x.Recipient == Mail).ToString();
             ViewBag.d1 = sending;
             var sent = c.Messages.Count(x => x.Sender == Mail).ToString();
             ViewBag.d2 = sent;
             return View(value);
         }
-        
+
         public ActionResult MessagesDetail(int id)
         {
             var value = c.Messages.Where(x => x.MessageID == id).ToList();
@@ -63,7 +63,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d2 = sent;
             return View(value);
         }
-        
+
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -76,14 +76,28 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
         [HttpPost]
-        public ActionResult NewMessage(Messages m)
+        public ActionResult NewMessage(Messages x)
         {
             var Mail = (string)Session["CustomerMail"];
-            m.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
-            m.Recipient = Mail;
-            c.Messages.Add(m);
+            x.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            x.Sender = Mail;
+
+            c.Messages.Add(x);
             c.SaveChanges();
-            return View();
+            return RedirectToAction("Sent");
+        }
+
+        public ActionResult CargoTracking(string p)
+        {
+            var k = from x in c.CargoDetails select x;
+            k = k.Where(y => y.TrackingCode.Contains(p));
+            return View(k.ToList());
+
+        }
+        public ActionResult CustomerCargoTracing(string id)
+        {
+            var value = c.CargoTrackings.Where(x => x.TrackingCode == id).ToList();
+            return View(value);
         }
     }
 }

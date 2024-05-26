@@ -14,7 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(1000)]
-        public string Descriptions { get; set; } 
+        public string Descriptions { get; set; }
 
         [Display(Name = " Tracking Code")]
         [Column(TypeName = "Varchar")]
@@ -28,6 +28,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Customer { get; set; }
+       
         public DateTime Date { get; set; }
 
 

@@ -3194,6 +3194,9 @@
     <Content Include="Views\CustomerPanel\MessagesDetail.cshtml" />
     <Content Include="Views\CustomerPanel\Sent.cshtml" />
     <Content Include="Views\CustomerPanel\NewMessage.cshtml" />
+    <Content Include="Views\ToDoList\Add.cshtml" />
+    <Content Include="Views\CustomerPanel\CargoTracking.cshtml" />
+    <Content Include="Views\CustomerPanel\CustomerCargoTracing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
