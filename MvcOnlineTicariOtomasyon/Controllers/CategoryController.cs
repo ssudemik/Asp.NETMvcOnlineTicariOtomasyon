@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         // GET: Category
@@ -48,6 +49,26 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             cate.CategoryName = k.CategoryName; //bu ID ye göre işlem yapması için k.CategoryName yeni değer diğer taraf atanacak değer.
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Deneme()
+        {
+            ClassCascading cs = new ClassCascading();
+            cs.Category = new SelectList(c.Categories, "CategoryID", "CategoryName");
+            cs.Product = new SelectList(c.Products, "ProductID", "ProductName");
+            return View(cs);
+        }
+        public JsonResult ProductList(int p)
+        {
+            var productlist = (from x in c.Products
+                               join y in c.Categories
+                               on x.Category.CategoryID equals y.CategoryID
+                               where x.Category.CategoryID == p
+                               select new
+                               {
+                                   Text = x.ProductName,
+                                   Value = x.ProductID.ToString()
+                               }).ToList();
+            return Json(productlist, JsonRequestBehavior.AllowGet);
         }
     }
 }

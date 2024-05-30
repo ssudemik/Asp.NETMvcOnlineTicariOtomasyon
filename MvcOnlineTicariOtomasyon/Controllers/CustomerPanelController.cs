@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class CustomerPanelController : Controller
     {
         Context c = new Context();

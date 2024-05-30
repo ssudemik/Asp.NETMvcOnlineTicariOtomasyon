@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models;
 using MvcOnlineTicariOtomasyon.Models.Classes;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class SaleController : Controller
     {
         Context c = new Context();

@@ -62,11 +62,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
         public ActionResult AdminLogin(Admin p)
         {
-            var info = c.Admins.FirstOrDefault(x => x.UserName == p.UserName && x.Password == p.Password);
+            var info = c.Employees.FirstOrDefault(x => x.EmployeeMail == p.UserName && x.EmployeePassword == p.Password);
             if (info != null)
             {
-                FormsAuthentication.SetAuthCookie(info.UserName, false);
-                Session["UserName"] = info.UserName.ToString();
+                FormsAuthentication.SetAuthCookie(info.EmployeeMail, false);
+                Session["UserName"] = info.EmployeeMail.ToString();
                 return RedirectToAction("Index", "Category");
             }
             else

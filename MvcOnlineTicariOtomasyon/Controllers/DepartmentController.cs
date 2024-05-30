@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmentController : Controller
     {
         // GET: Department

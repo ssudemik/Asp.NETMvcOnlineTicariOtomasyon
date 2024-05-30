@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models.Classes;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class ToDoListController : Controller
     {
         // GET: ToDoList

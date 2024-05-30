@@ -6,36 +6,36 @@
         @*<div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label">ID</label>
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(x => x.Cariid, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control" })
                 </div>
             </div>*@
-        @Html.HiddenFor(x => x.CustomerName)
+        @Html.HiddenFor(x => x.CustomerID) @*//ID ye göre güncellendiği için*@
         <div class="form-group row">
-            <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputEmail" class="col-sm-2 col-form-label">Soyad</label>
+            <label for="inputEmail" class="col-sm-2 col-form-label">Surname</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputName2" class="col-sm-2 col-form-label">Mail Adresi</label>
+            <label for="inputName2" class="col-sm-2 col-form-label">Mail </label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputExperience" class="col-sm-2 col-form-label">Şehir</label>
+            <label for="inputExperience" class="col-sm-2 col-form-label">City</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputSkills" class="col-sm-2 col-form-label">Şifre</label>
+            <label for="inputSkills" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })
             </div>

@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models.Classes;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class BillController : Controller
     {
         // GET: Bill
@@ -63,6 +64,39 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.BillCategories.Add(b);
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Dynamic()
+        {
+
+            ClassDynamic cs = new ClassDynamic();
+            cs.value1 = c.Bills.ToList();
+            cs.value2 = c.BillCategories.ToList();
+            return View(cs);
+        }
+        public ActionResult BillSave(string BillsSerialNo, string BillsNo, DateTime Date, string TaxOffice, string Time, string Deliverer, string Receiver, string Sum, BillCategory[] catergoryB)
+        {
+            Bill f = new Bill();
+            f.BillsSerialNo = BillsSerialNo;
+            f.BillsNo = BillsNo;
+            f.Date = Date;
+            f.TaxOffice = TaxOffice;
+            f.Time = Time;
+            f.Deliverer = Deliverer;
+            f.Receiver = Receiver;
+            f.Sum = decimal.Parse(Sum);
+            c.Bills.Add(f);
+            foreach (var x in catergoryB)
+            {
+                BillCategory fk = new BillCategory();
+                fk.Explanation = x.Explanation;
+                fk.UnitPrice = x.UnitPrice;
+                fk.BillCategoryID = x.BillCategoryID;
+                fk.Amount = x.Amount;
+                fk.Sum = x.Sum;
+                c.BillCategories.Add(fk);
+            }
+            c.SaveChanges();
+            return Json("İşlem Başarılı", JsonRequestBehavior.AllowGet);
         }
     }
 }

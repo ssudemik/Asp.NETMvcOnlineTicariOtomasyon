@@ -28,6 +28,16 @@ namespace MvcOnlineTicariOtomasyon.Models.Classes
         [StringLength(250)]
         public string EmployeeVisual { get; set; } //çalışan görsel
 
+        [Display(Name = " Employee Mail ")]
+        [Column(TypeName = "Varchar")]
+        [StringLength(50, ErrorMessage = "You can write up to 50 characters :) ")]
+        public string EmployeeMail { get; set; }
+
+        [Display(Name = " Employee Password ")]
+        [Column(TypeName = "Varchar")]
+        [StringLength(10, ErrorMessage = "You can write up to 50 characters :) ")]
+        public string EmployeePassword { get; set; }
+
         public ICollection<SalesTransaction> SalesTransactions { get; set; }
         public int DepartmentId { get; set; }
         public virtual Department Department { get; set; }  //departman ile personel arasındaki bağlantı

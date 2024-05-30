@@ -9,6 +9,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class StatisticsController : Controller
     {
         // GET: Statistic

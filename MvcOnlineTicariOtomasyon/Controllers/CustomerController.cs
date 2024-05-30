@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models.Classes;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         Context c = new Context();
