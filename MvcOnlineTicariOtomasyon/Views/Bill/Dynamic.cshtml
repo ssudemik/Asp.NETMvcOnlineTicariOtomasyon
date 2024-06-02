@@ -6,288 +6,299 @@
 
 
 @*Adım 1*@
-<br />
-<br />
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row">
-            <h2 class="panel-title pull-left" style="margin-left:10px;">
-                <strong>Bill & Category Transactions</strong>
-            </h2>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newOrderModal"> Add Bill </button>
-        </div>
-    </div>
-    @*Fatura Listesi*@
+<html lang="en">
+<head>
 
-    @foreach (var item in Model.value1)
-    {
-        <div class="panel-body">
-            <table class="table table-striped table-responsive">
-                <tbody>
-                    <tr>
-                        <td>Serial No - No : @item.BillsSerialNo-@item.BillsNo</td>
-                        <td>Customer : @item.Receiver</td>
-                        <td>Date : @item.Date</td>
-                        <td>Tax Office : @item.TaxOffice</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <th>Explanation</th>
-                                        <th>Amount</th>
-                                        <th>Unit Price</th>
-                                        <th>Price</th>
-                                    </tr>
-                                    @{
-                                        var totalBill = 0;
-                                    }
-                                    @foreach (var order in item.BillCategorys)
-                                    {
-                                        <tr>
-                                            <td>@order.Explanation</td>
-                                            <td>@order.Amount</td>
-                                            <td>@order.UnitPrice</td>
-                                            <td>@order.Sum</td>
-                                        </tr>
-                                        totalBill = totalBill + @Convert.ToInt32(order.Sum);
-                                    }
-                                </tbody>
-                            </table>
-                            <span class="pull-right" style="margin-right:100px;"><strong>  Total Bill Price :  </strong> @totalBill</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    }
-</div>
-
-@*Adım 2*@
-
-<div class="modal fade" id="newOrderModal">
-    <div class="modal-dialog modal-lg" style=" width: 900px !important;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal">&times;</a>
-                <h4>New Bill </h4>
+    
+</head>
+<body>
+    <br />
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h2 class="panel-title pull-left" style="margin-left:10px;">
+                    <strong>Bill & Category Transactions</strong>
+                </h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newOrderModal"> Add Bill </button>
             </div>
-            <form id="NewOrderForm">
-                <div class="modal-body">
-                    @*Fatura Details*@
-                    <h5 style="color:#ff6347"> Bill Detail</h5>
+        </div>
+        @*Fatura Listesi*@
+
+        @foreach (var item in Model.value1)
+        {
+            <div class="panel-body">
+                <table class="table table-striped table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>Serial No - No : @item.BillsSerialNo-@item.BillsNo</td>
+                            <td>Customer : @item.Receiver</td>
+                            <td>Date : @item.Date</td>
+                            <td>Tax Office : @item.TaxOffice</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Explanation</th>
+                                            <th>Amount</th>
+                                            <th>Unit Price</th>
+                                            <th>Price</th>
+                                        </tr>
+                                        @{
+                                            var totalBill = 0;
+                                        }
+                                        @foreach (var order in item.BillCategorys)
+                                        {
+                                            <tr>
+                                                <td>@order.Explanation</td>
+                                                <td>@order.Amount</td>
+                                                <td>@order.UnitPrice</td>
+                                                <td>@order.Sum</td>
+                                            </tr>
+                                            totalBill = totalBill + @Convert.ToInt32(order.Sum);
+                                        }
+                                    </tbody>
+                                </table>
+                                <span class="pull-right" style="margin-right:100px;"><strong>  Total Bill Price :  </strong> @totalBill</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+    @*Adım 2*@
+
+    <div class="modal fade" id="newOrderModal">
+        <div class="modal-dialog modal-lg" style=" width: 900px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="/Bill/Dynamic/" class="close" data-dismiss="modal">&times;</a>
+                    <h4>New Bill </h4>
+                </div>
+                <form id="NewOrderForm">
+                    <div class="modal-body">
+                        @*Fatura Details*@
+                        <h5 style="color:#ff6347"> Bill </h5>
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class=" flex-row">
+                                <input type="hidden" id="BillsID" />
+
+
+                                <div class="form-group d-flex mt-2 flex-wrap">
+                                    <label class="control-label col-md-2">
+                                        Seril No:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="BillsSerialNo" name="BillsSerialNo" placeholder="Bill Serial No" class="form-control" />
+                                    </div>
+                                    <label class="control-label col-md-2">
+                                        No:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="BillsNo" name="BillsNo" placeholder=" No" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex mt-2 flex-wrap">
+                                    <label class="control-label col-md-2">
+                                        Date:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="Date" name="Date" placeholder="Date" class="form-control" />
+                                    </div>
+                                    <label class="control-label col-md-2">
+                                        Tax Office:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="TaxOffice" name="TaxOffice" placeholder="Tax Office" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex mt-2 flex-wrap">
+                                    <label class="control-label col-md-2">
+                                        Time:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="Time" name="Time" placeholder="Time" class="form-control" />
+                                    </div>
+                                    <label class="control-label col-md-2">
+                                        Deliverer:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="Deliverer" name="Deliverer" placeholder="Deliverer Customer/Employee" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex mt-2 flex-wrap">
+                                    <label class="control-label col-md-2">
+                                        Receiver:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="Receiver" name="Receiver" placeholder="Receiver Customer/Employee" class="form-control" />
+                                    </div>
+                                    <label class="control-label col-md-2">
+                                        Total Price:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="Sum" name="Sum" placeholder="Total Price" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Fatura Kalemleri*@
+                    <h5 style="color:#ff6347"> Bill Detail </h5>
                     <hr />
                     <div class="form-horizontal">
                         <div class=" flex-row">
-                            <input type="hidden" id="BillID" />
+                            <input type="hidden" id="BillsID" />
+                            <div class="form-group d-flex mt-2 flex-wrap">
+                                <label class="control-label col-md-2">
+                                    Explanation:
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" id="Explanation" name="Explanation" placeholder="Product Description" class="form-control" />
+                                </div>
+                                <label class="control-label col-md-2">
+                                    Unit Price:
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="number" id="UnitPrice" name="UnitPrice" placeholder="Unit Price" class="form-control" />
+                                </div>
+                            </div>
 
+                            <div class="form-group d-flex mt-2 flex-wrap">
+                                <label class="control-label col-md-2">
+                                    Amount:
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="number" id="Amount" name="Amount" placeholder="Enter Amount" class="form-control" />
+                                </div>
+                                <br />
+                                <br />
+                                <div class="form-group d-flex mt-2 flex-wrap">
+                                    <a id="addToList" class="btn btn-primary">Add To List</a>
+                                </div>
+                            </div>
 
-                            <div class="form-group d-flex mt-2 flex-wrap">
-                                <label class="control-label col-md-2">
-                                    Seril No:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="BillSerialNo" name="BillSerialNo" placeholder="Bill Serial No" class="form-control" />
-                                </div>
-                                <label class="control-label col-md-2">
-                                    No:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="BillNo" name="BillNo" placeholder=" No" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group d-flex mt-2 flex-wrap">
-                                <label class="control-label col-md-2">
-                                    Date:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="Date" name="Date" placeholder="Date" class="form-control" />
-                                </div>
-                                <label class="control-label col-md-2">
-                                    Tax Office:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="TaxOffice" name="TaxOffice" placeholder="Tax Office" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group d-flex mt-2 flex-wrap">
-                                <label class="control-label col-md-2">
-                                    Time:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="Time" name="Time" placeholder="Time" class="form-control" />
-                                </div>
-                                <label class="control-label col-md-2">
-                                    Deliverer:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="Deliverer" name="Deliverer" placeholder="Deliverer Customer/Employee" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group d-flex mt-2 flex-wrap">
-                                <label class="control-label col-md-2">
-                                    Receiver:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="Receiver" name="Receiver" placeholder="Receiver Customer/Employee" class="form-control" />
-                                </div>
-                                <label class="control-label col-md-2">
-                                    Total Price:
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" id="Sum" name="Sum" placeholder="Sum" class="form-control" />
-                                </div>
-                            </div>
+                            <table id="detailsTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:30%">Explanation</th>
+                                        <th style="width:20%">Amount</th>
+                                        <th style="width:15%">Unit Price</th>
+                                        <th style="width:25%">Sum</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
-                </div>
-
-                @*Fatura Kalemleri*@
-                <h5 style="margin-top:10px;color:#ff6347"> Bill Categories</h5>
-                <hr />
-                <div class="form-horizontal">
-                    <div class=" flex-row">
-                        <input type="hidden" id="BillID" />
-                        <div class="form-group d-flex mt-2 flex-wrap">
-                            <label class="control-label col-md-2">
-                                Explanation:
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="Explanation" name="Explanation" placeholder="Product / Enter Unit Description" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Unit Price:
-                            </label>
-                            <div class="col-md-4">
-                                <input type="number" id="UnitPrice" name="UnitPrice" placeholder="Unit Price" class="form-control" />
-                            </div>
-                        </div>
-
-                        <div class="form-group d-flex mt-2 flex-wrap">
-                            <label class="control-label col-md-2">
-                                Sum:
-                            </label>
-                            <div class="col-md-4">
-                                <input type="number" id="Sum" name="Sum" placeholder="Enter Amount" class="form-control" />
-                            </div>
-                            <div class="col-md-2 col-lg-offset-4">
-                                <a id="addToList" class="btn btn-primary">Add To List</a>
-                            </div>
-                        </div>
-                         
-                        <table id="detailsTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th style="width:30%">Explanation</th>
-                                    <th style="width:20%">Amount</th>
-                                    <th style="width:15%">Unit Price</th>
-                                    <th style="width:25%">Sum</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-default" data-dismiss="modal">Delete</button>
+                        <button id="saveOrder" type="submit" class="btn btn-danger">Save Bill</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button id="saveOrder" type="submit" class="btn btn-danger">Save Bill</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-@*Adım 3*@
+    @*Adım 3*@
 
-@section scripts{
-    <script>
-        //Show Modal.
-        function addNewOrder() {
-            $("#newOrderModal").modal();
-        }
-        //Add Multiple Order.
-        $("#addToList").click(function (e) {
-            e.preventDefault();
-
-            if ($.trim($("#Explanation").val()) == "" || $.trim($("#UnitPrice").val()) == "" || $.trim($("#Amount").val()) == "") return;
-
-            var Aciklama = $("#Explanation").val(),
-                BirimFiyat = $("#UnitPrice").val(),
-                Miktar = $("#Amount").val(),
-                detailsTableBody = $("#detailsTable tbody");
-
-            var degerler = '<tr><td>' + Explanation + '</td><td>' + Amount + '</td><td>' + UnitPrice + '</td><td>' + (parseFloat(UnitPrice) * parseInt(Amount)) + '</td><td><a data-itemId="0" href="#" class="deleteItem">Delete</a></td></tr>';
-            detailsTableBody.append(degerler);
-            clearItem();
-        });
-        //After Add A New Order In The List, Clear Clean The Form For Add More Order.
-        function clearItem() {
-            $("#Explanation").val('');
-            $("#UnitPrice").val('');
-            $("#Amount").val('');
-        }
-        // After Add A New Order In The List, If You Want, You Can Remove It.
-        $(document).on('click', 'a.deleteItem', function (e) {
-            e.preventDefault();
-            var $self = $(this);
-            if ($(this).attr('data-itemId') == "0") {
-                $(this).parents('tr').css("background-color", "#ff6347").fadeOut(800, function () {
-                    $(this).remove();
-                });
+    @section scripts{
+        <script>
+            //Show Modal.
+            function addNewOrder() {
+                $("#newOrderModal").modal();
             }
-        });
-        //After Click Save Button Pass All Data View To Controller For Save Database
-        function saveOrder(data) {
-            return $.ajax({
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                type: 'POST',
-                url: "/Bill/BillSave",
-                data: data,
-                success: function (result) {
-                    alert(result);
-                    location.reload();
-                },
-                error: function () {
-                    alert("Error!")
+            //Add Multiple Order.
+            $("#addToList").click(function (e) {
+                e.preventDefault();
+
+                if ($.trim($("#Explanation").val()) == "" || $.trim($("#UnitPrice").val()) == "" || $.trim($("#Amount").val()) == "") return;
+
+                var Explanation = $("#Explanation").val(),
+                    UnitPrice = $("#UnitPrice").val(),
+                    Amount = $("#Amount").val(),
+                    detailsTableBody = $("#detailsTable tbody");
+
+                var degerler = '<tr><td>' + Explanation + '</td><td>' + Amount + '</td><td>' + UnitPrice + '</td><td>' + (parseFloat(UnitPrice) * parseInt(Amount)) + '</td><td><a data-itemId="0" href="#" class="deleteItem">Delete</a></td></tr>';
+                detailsTableBody.append(degerler);
+                clearItem();
+            });
+            //After Add A New Order In The List, Clear Clean The Form For Add More Order.
+            function clearItem() {
+                $("#Explanation").val('');
+                $("#UnitPrice").val('');
+                $("#Amount").val('');
+            }
+            // After Add A New Order In The List, If You Want, You Can Remove It.
+            $(document).on('click', 'a.deleteItem', function (e) {
+                e.preventDefault();
+                var $self = $(this);
+                if ($(this).attr('data-itemId') == "0") {
+                    $(this).parents('tr').css("background-color", "#ff6347").fadeOut(800, function () {
+                        $(this).remove();
+                    });
                 }
             });
-        }
-        //Collect Multiple Order List For Pass To Controller
-        $("#saveOrder").click(function (e) {
-            e.preventDefault();
+            //After Click Save Button Pass All Data View To Controller For Save Database
+            function saveOrder(data) {
+                return $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    url: "/Bill/BillSave",
+                    data: data,
+                    success: function (result) {
+                        alert(result);
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Error!")
+                    }
+                });
+            }
+            //Collect Multiple Order List For Pass To Controller
+            $("#saveOrder").click(function (e) {
+                e.preventDefault();
 
-            var orderArr = [];
-            orderArr.length = 0;
+                var orderArr = [];
+                orderArr.length = 0;
 
-            $.each($("#detailsTable tbody tr"), function () {
-                orderArr.push({
-                    Explanation: $(this).find('td:eq(0)').html(),
-                    Amount: $(this).find('td:eq(1)').html(),
-                    UnitPrice: $(this).find('td:eq(2)').html(),
-                    Sum: $(this).find('td:eq(3)').html()
+                $.each($("#detailsTable tbody tr"), function () {
+                    orderArr.push({
+                        Explanation: $(this).find('td:eq(0)').html(),
+                        Amount: $(this).find('td:eq(1)').html(),
+                        UnitPrice: $(this).find('td:eq(2)').html(),
+                        Sum: $(this).find('td:eq(3)').html()
+                    });
+                });
+
+
+                var data = JSON.stringify({
+                    BillSerialNo: $("#BillsSerialNo").val(),
+                    BillNo: $("#BillsNo").val(),
+                    Datw: $("#Date").val(),
+                    Time: $("#Time").val(),
+                    TaxOffice: $("#TaxOffice").val(),
+                    Deliverer: $("#Deliverer").val(),
+                    Receiver: $("#Receiver").val(),
+                    Sum: $("#Sum").val(),
+                    catergoryB: orderArr
+                });
+
+                $.when(saveOrder(data)).then(function (response) {
+                    console.log(response);
+                }).fail(function (err) {
+                    console.log(err);
                 });
             });
-
-
-            var data = JSON.stringify({
-                BillSerialNo: $("#BillSerialNo").val(),
-                BillNo: $("#BillNo").val(),
-                Datw: $("#Date").val(),
-                Time: $("#Time").val(),
-                TaxOffice: $("#TaxOffice").val(),
-                Deliverer: $("#Deliverer").val(),
-                Receiver: $("#Receiver").val(),
-                Sum: $("#Sum").val(),
-                catergoryB: orderArr
-            });
-
-            $.when(saveOrder(data)).then(function (response) {
-                console.log(response);
-            }).fail(function (err) {
-                console.log(err);
-            });
-        });
-    </script>
-}
+        </script>
+    }
+    <s
+</body>
+</html>

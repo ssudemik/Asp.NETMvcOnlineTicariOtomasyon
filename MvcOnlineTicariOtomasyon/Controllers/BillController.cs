@@ -96,7 +96,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
                 c.BillCategories.Add(fk);
             }
             c.SaveChanges();
-            return Json("İşlem Başarılı", JsonRequestBehavior.AllowGet);
+            return Json("Successful");
         }
     }
 }
