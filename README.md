@@ -8,3 +8,12 @@ Password: 1
 For test admin login, use the following information:
 Email: sudeemik@gmail.com
 Password: 12
+------------------------------------------------------------------------------------------------------------------------
+yaptığım projenin canlıya taşınmış halini link üzerinden paylaşıyorum 
+deneme customer girişi için bilgiler =>
+mail: nurhankalkan@gmail.com
+şifre:1
+
+deneme admin girişi için bilgiler =>
+mail: sudeemik@gmail.com
+şifre:12
